@@ -1,0 +1,3 @@
+[submodule "WorldGuardExtraFlags"]
+	path = WorldGuardExtraFlags
+	url = https://github.com/aromaa/WorldGuardExtraFlags
