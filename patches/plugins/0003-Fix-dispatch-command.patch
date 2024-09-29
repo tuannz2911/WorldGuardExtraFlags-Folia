@@ -1,45 +1,15 @@
-From de679996e5f2fc49c8c935916a5013f6f417bd66 Mon Sep 17 00:00:00 2001
+From 81adef40685b363dd2a59783a77369e22477023c Mon Sep 17 00:00:00 2001
 From: Euphyllia Bierque <bierque.euphyllia@gmail.com>
-Date: Sun, 29 Sep 2024 18:49:13 +0200
+Date: Sun, 29 Sep 2024 18:50:06 +0200
 Subject: [PATCH 3/3] Fix dispatch command
 
 ---
- .../worldguardextraflags/wg/WorldGuardUtils.java             | 5 +++--
- .../wg/handlers/CommandOnEntryFlagHandler.java               | 3 ++-
- .../wg/handlers/CommandOnExitFlagHandler.java                | 3 ++-
- .../wg/handlers/ConsoleCommandOnEntryFlagHandler.java        | 3 ++-
- .../wg/handlers/ConsoleCommandOnExitFlagHandler.java         | 3 ++-
- 5 files changed, 11 insertions(+), 6 deletions(-)
+ .../wg/handlers/CommandOnEntryFlagHandler.java                 | 3 ++-
+ .../wg/handlers/CommandOnExitFlagHandler.java                  | 3 ++-
+ .../wg/handlers/ConsoleCommandOnEntryFlagHandler.java          | 3 ++-
+ .../wg/handlers/ConsoleCommandOnExitFlagHandler.java           | 3 ++-
+ 4 files changed, 8 insertions(+), 4 deletions(-)
 
-diff --git a/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/WorldGuardUtils.java b/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/WorldGuardUtils.java
-index 19a36df..a40d508 100644
---- a/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/WorldGuardUtils.java
-+++ b/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/WorldGuardUtils.java
-@@ -3,6 +3,7 @@ package net.goldtreeservers.worldguardextraflags.wg;
- import java.util.HashSet;
- import java.util.Set;
- 
-+import net.goldtreeservers.worldguardextraflags.scheduler_wg.FoliaRunnable;
- import org.bukkit.entity.Player;
- import org.bukkit.metadata.FixedMetadataValue;
- import org.bukkit.metadata.MetadataValue;
-@@ -27,14 +28,14 @@ public class WorldGuardUtils
- 			
- 			player.setMetadata(WorldGuardUtils.PREVENT_TELEPORT_LOOP_META, result);
- 			
--			new BukkitRunnable()
-+			new FoliaRunnable(player.getScheduler(), null)
- 			{
- 				@Override
- 				public void run()
- 				{
- 					player.removeMetadata(WorldGuardUtils.PREVENT_TELEPORT_LOOP_META, plugin);
- 				}
--			}.runTask(plugin);
-+			}.run(plugin);
- 		}
- 		
- 		Set<Object> set = (Set<Object>)result.value();
 diff --git a/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/CommandOnEntryFlagHandler.java b/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/CommandOnEntryFlagHandler.java
 index 8e056f0..0467473 100644
 --- a/WG/src/main/java/net/goldtreeservers/worldguardextraflags/wg/handlers/CommandOnEntryFlagHandler.java
