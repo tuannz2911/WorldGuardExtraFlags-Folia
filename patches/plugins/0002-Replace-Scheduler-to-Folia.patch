@@ -1,7 +1,7 @@
-From 1531c320a9877717cee24cb7afb70dfefc3e1480 Mon Sep 17 00:00:00 2001
+From 8695b09b9833d346568d83113f991152b6ea536a Mon Sep 17 00:00:00 2001
 From: Euphyllia Bierque <bierque.euphyllia@gmail.com>
-Date: Sun, 29 Sep 2024 18:08:39 +0200
-Subject: [PATCH 2/2] Replace Scheduler to Folia
+Date: Sun, 29 Sep 2024 18:49:12 +0200
+Subject: [PATCH 2/3] Replace Scheduler to Folia
 
 ---
  .../WorldGuardExtraFlagsPlugin.java           |   2 +-
