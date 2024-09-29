@@ -1,15 +1,29 @@
-From 51e7b37c0f9e8d1667659411987783d43aea9d43 Mon Sep 17 00:00:00 2001
+From 1531c320a9877717cee24cb7afb70dfefc3e1480 Mon Sep 17 00:00:00 2001
 From: Euphyllia Bierque <bierque.euphyllia@gmail.com>
-Date: Sun, 29 Sep 2024 17:58:17 +0200
+Date: Sun, 29 Sep 2024 18:08:39 +0200
 Subject: [PATCH 2/2] Replace Scheduler to Folia
 
 ---
+ .../WorldGuardExtraFlagsPlugin.java           |   2 +-
  .../listeners/PlayerListener.java             |   9 +-
  .../scheduler_wg/FoliaRunnable.java           | 297 ++++++++++++++++++
  .../wg/handlers/PlaySoundsFlagHandler.java    |  12 +-
- 3 files changed, 308 insertions(+), 10 deletions(-)
+ 4 files changed, 309 insertions(+), 11 deletions(-)
  create mode 100644 WG/src/main/java/net/goldtreeservers/worldguardextraflags/scheduler_wg/FoliaRunnable.java
 
+diff --git a/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/WorldGuardExtraFlagsPlugin.java b/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/WorldGuardExtraFlagsPlugin.java
+index 5e6e611..052bd07 100644
+--- a/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/WorldGuardExtraFlagsPlugin.java
++++ b/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/WorldGuardExtraFlagsPlugin.java
+@@ -160,7 +160,7 @@ public class WorldGuardExtraFlagsPlugin extends JavaPlugin
+ 			this.doUnloadChunkFlagCheck(world);
+ 		}
+ 		
+-		this.setupMetrics();
++		if (false) this.setupMetrics();
+ 	}
+ 
+ 	public void doUnloadChunkFlagCheck(org.bukkit.World world)
 diff --git a/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/PlayerListener.java b/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/PlayerListener.java
 index d721e4f..56e2165 100644
 --- a/Spigot/src/main/java/net/goldtreeservers/worldguardextraflags/listeners/PlayerListener.java
