@@ -1,6 +1,6 @@
-From c606db9786ce3d623a007b5c22ffc0a35cc06d2e Mon Sep 17 00:00:00 2001
+From dc2dc5042dd92dbe9b993f48d8fafc71f3fe8020 Mon Sep 17 00:00:00 2001
 From: Euphyllia Bierque <bierque.euphyllia@gmail.com>
-Date: Sun, 29 Sep 2024 18:50:06 +0200
+Date: Mon, 16 Dec 2024 13:59:09 +0100
 Subject: [PATCH 2/3] Replace Scheduler to Folia
 
 ---
@@ -70,7 +70,7 @@ index d721e4f..56e2165 100644
  	
 diff --git a/WG/src/main/java/net/goldtreeservers/worldguardextraflags/scheduler_wg/FoliaRunnable.java b/WG/src/main/java/net/goldtreeservers/worldguardextraflags/scheduler_wg/FoliaRunnable.java
 new file mode 100644
-index 0000000..81ab976
+index 0000000..c3d6983
 --- /dev/null
 +++ b/WG/src/main/java/net/goldtreeservers/worldguardextraflags/scheduler_wg/FoliaRunnable.java
 @@ -0,0 +1,297 @@
@@ -454,5 +454,5 @@ index 80fa69b..ea4df8e 100644
  			if (value != null && value.size() > 0)
  			{
 -- 
-2.45.1.windows.1
+2.47.1.windows.1
 
